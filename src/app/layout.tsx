@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Caleb Omoijuanfo | Web Developer & Designer",
+  title: "Caleb Omoijuanfo | Full Stack Software Engineer",
   description:
-    "Portfolio of Caleb Omoijuanfo - Full-stack web developer specializing in modern web technologies, mobile applications, and SaaS platforms.",
+    "Portfolio of Caleb Omoijuanfo - Full Stack Software Engineer with 7+ years of experience building scalable web and mobile applications. Specializing in React, React Native, Node.js, and TypeScript.",
   keywords: [
     "web developer",
     "full-stack",
@@ -25,10 +25,11 @@ export const metadata: Metadata = {
     "portfolio",
   ],
   authors: [{ name: "Caleb Omoijuanfo" }],
+  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
   openGraph: {
-    title: "Caleb Omoijuanfo | Web Developer & Designer",
+    title: "Caleb Omoijuanfo | Full Stack Software Engineer",
     description:
-      "Full-stack web developer specializing in modern web technologies.",
+      "Full Stack Software Engineer with 7+ years of experience building scalable web and mobile applications.",
     type: "website",
   },
 };
