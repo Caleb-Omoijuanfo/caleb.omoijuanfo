@@ -1,13 +1,18 @@
 "use client";
 
-import React from "react";
-import { Mail, Github, Linkedin, ArrowDown } from "lucide-react";
+import React, { useState } from "react";
+import { Mail, Github, Linkedin, ArrowDown, Menu, X } from "lucide-react";
 import Marquee from "react-fast-marquee";
 
+const NAV_ITEMS = ["Home", "Projects", "My Skills", "Contact me"];
+
 const Home = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: "smooth" });
+    setMenuOpen(false);
   };
 
   return (
@@ -15,31 +20,63 @@ const Home = () => {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1E1E24]/90 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-6 py-4">
-          <div className="flex flex-col items-center gap-4">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
             <div className="text-lg font-bold text-white">
               Caleb<span className="text-purple-400">.</span>
             </div>
-            <div className="flex bg-[#282832] rounded-lg overflow-hidden">
-              {["Home", "Projects", "My Skills", "Contact me"].map(
-                (item, index) => (
-                  <button
-                    key={item}
-                    onClick={() =>
-                      scrollToSection(item.toLowerCase().replace(" ", "-"))
-                    }
-                    className={`text-sm px-5 py-2 transition-colors ${
-                      index === 0
-                        ? "bg-[#1E1E24] text-white border border-gray-600"
-                        : "text-gray-400 hover:text-white"
-                    }`}
-                  >
-                    <span className="text-purple-400">#</span>
-                    {item}
-                  </button>
-                ),
-              )}
+
+            {/* Desktop menu */}
+            <div className="hidden md:flex bg-[#282832] rounded-lg overflow-hidden">
+              {NAV_ITEMS.map((item, index) => (
+                <button
+                  key={item}
+                  onClick={() =>
+                    scrollToSection(item.toLowerCase().replace(" ", "-"))
+                  }
+                  className={`text-sm px-5 py-2 transition-colors ${
+                    index === 0
+                      ? "bg-[#1E1E24] text-white border border-gray-600"
+                      : "text-gray-400 hover:text-white"
+                  }`}
+                >
+                  <span className="text-purple-400">#</span>
+                  {item}
+                </button>
+              ))}
             </div>
+
+            {/* Mobile hamburger button */}
+            <button
+              className="md:hidden text-gray-400 hover:text-white transition-colors"
+              onClick={() => setMenuOpen((prev) => !prev)}
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
+
+          {/* Mobile dropdown menu */}
+          {menuOpen && (
+            <div className="md:hidden mt-3 flex flex-col bg-[#282832] rounded-lg overflow-hidden">
+              {NAV_ITEMS.map((item, index) => (
+                <button
+                  key={item}
+                  onClick={() =>
+                    scrollToSection(item.toLowerCase().replace(" ", "-"))
+                  }
+                  className={`text-sm px-5 py-3 text-left transition-colors border-b border-gray-700 last:border-b-0 ${
+                    index === 0
+                      ? "bg-[#1E1E24] text-white"
+                      : "text-gray-400 hover:text-white hover:bg-[#1E1E24]"
+                  }`}
+                >
+                  <span className="text-purple-400">#</span>
+                  {item}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </nav>
 
@@ -493,7 +530,7 @@ const Home = () => {
               Designed & Built by Caleb
             </div>
             <div className="flex gap-3 order-1 sm:order-3">
-              <a
+              {/* <a
                 href="https://github.com/calebomoijuanfo"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -501,9 +538,9 @@ const Home = () => {
                 aria-label="GitHub Profile"
               >
                 <Github size={18} className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
-              </a>
+              </a> */}
               <a
-                href="https://linkedin.com/in/calebomoijuanfo"
+                href="https://www.linkedin.com/in/caleb-u-o-b2a313151/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-gray-600 p-2 hover:bg-white hover:text-[#1E1E24] active:bg-white active:text-[#1E1E24] transition-colors"
