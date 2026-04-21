@@ -540,7 +540,7 @@ const Home = () => {
                 <Github size={18} className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
               </a> */}
               <a
-                href="https://www.linkedin.com/in/caleb-u-o-b2a313151/"
+                href="https://www.linkedin.com/in/caleb-u-omoijuanfo-b2a313151/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-gray-600 p-2 hover:bg-white hover:text-[#1E1E24] active:bg-white active:text-[#1E1E24] transition-colors"
